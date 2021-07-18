@@ -1,0 +1,38 @@
+<div class="pic-and-txt">
+
+  <div class="pic-dropdown">
+    <select [(ngModel)]="chosenPic"
+            (ngModelChange)="updateSelection()"
+            class="pic-select">
+      <option value="">Select picture</option>
+      <option *ngFor="let pic of pictures"
+        ngValue="{{pic.value}}">
+        {{pic.name}}
+      </option>
+    </select>
+  </div>
+
+  <div class="text-box">
+    <input class="form-control"
+           [(ngModel)]="userTitle"
+           type="text" name="userTitle"
+           (ngModelChange)="this.userTitleUpdate.next($event)">
+  </div>
+</div>
+
+<div class="container">
+<!--  <div class="frame">-->
+<!--&lt;!&ndash;       [ngStyle]="{background:frameColor}">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="text-line">&ndash;&gt;-->
+<!--&lt;!&ndash;      <h1 *ngFor="let message of console">&ndash;&gt;-->
+<!--&lt;!&ndash;        {{message}}&ndash;&gt;-->
+<!--&lt;!&ndash;      </h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <img src="{{picture}}"&ndash;&gt;-->
+<!--&lt;!&ndash;         *ngIf="picture"&ndash;&gt;-->
+<!--&lt;!&ndash;         class="container-img">&ndash;&gt;-->
+
+<!--  </div>-->
+  <canvas id="canvas" #canvas width="640" height="360"></canvas>
+
+</div>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'home-assignment';
+
+  white: string = 'white';
+  blue: string = 'blue';
+  isWhite: boolean = true;
+
+  public colorSource = new BehaviorSubject<string>(this.white);
+
+  currentColor = this.colorSource.asObservable();
+
+  constructor(private router: Router) {
+  }
+
+  changeColor(message: string) {
+    this.colorSource.next(message);
+  }
+
+  ngOnInit(){
+    this.router.navigate([''])
+  }
+
+  whiteBtnClick() {
+    this.isWhite = true;
+    this.changeColor(this.white);
+  }
+
+  blueBtnClick() {
+    this.isWhite = !true;
+    this.changeColor(this.blue);
+  }
+
+
 }
+

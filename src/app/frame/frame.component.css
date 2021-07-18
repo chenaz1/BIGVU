@@ -1,0 +1,30 @@
+.pic-and-txt {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding-bottom: 50px;
+  padding-top: 50px;
+  gap: 100px;
+}
+
+.pic-dropdown {
+  display: grid;
+  align-content: center;
+  text-align: center;
+  padding-left: 50px;
+}
+
+.text-box {
+  padding-right: 50px;
+}
+
+.container {
+  size: auto;
+  text-align: center;
+}
+
+#canvas {
+  border: 1px solid lightgrey;
+}
+
+
+
